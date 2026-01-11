@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Account - BürokratAI</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #d93025;
+            font-size: 1.75rem;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        h2 {
+            color: #202124;
+            font-size: 1.1rem;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+        p, li {
+            color: #5f6368;
+            margin-bottom: 10px;
+        }
+        ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        .warning {
+            background: #fce8e6;
+            padding: 15px 20px;
+            border-radius: 8px;
+            border-left: 4px solid #d93025;
+            margin: 20px 0;
+        }
+        .warning p {
+            color: #c5221f;
+            margin: 0;
+        }
+        .info {
+            background: #e8f0fe;
+            padding: 15px 20px;
+            border-radius: 8px;
+            border-left: 4px solid #1a73e8;
+            margin: 20px 0;
+        }
+        .info p {
+            color: #1967d2;
+            margin: 0;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 5px;
+            color: #202124;
+        }
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: inherit;
+        }
+        input[type="email"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #1a73e8;
+            box-shadow: 0 0 0 2px rgba(26,115,232,0.2);
+        }
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .checkbox-group input {
+            margin-top: 4px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            background: #d93025;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .btn:hover {
+            background: #b71c1c;
+        }
+        .btn-secondary {
+            background: #f1f3f4;
+            color: #5f6368;
+            margin-left: 10px;
+        }
+        .btn-secondary:hover {
+            background: #e8eaed;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #999;
+            font-size: 0.9rem;
+        }
+        a {
+            color: #1a73e8;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .success-message {
+            display: none;
+            background: #e6f4ea;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #34a853;
+            margin: 20px 0;
+        }
+        .success-message h3 {
+            color: #137333;
+            margin-bottom: 10px;
+        }
+        .success-message p {
+            color: #137333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>🗑️ Delete Your Account</h1>
+            <p class="subtitle">BürokratAI - Account & Data Deletion Request</p>
+
+            <div class="warning">
+                <p><strong>⚠️ Warning:</strong> Account deletion is permanent and cannot be undone.</p>
+            </div>
+
+            <h2>What will be deleted:</h2>
+            <ul>
+                <li>Your account and profile information</li>
+                <li>All scanned documents</li>
+                <li>Chat conversation history</li>
+                <li>Saved forms and deadlines</li>
+                <li>All associated data</li>
+            </ul>
+
+            <h2>What will NOT be deleted:</h2>
+            <ul>
+                <li>Your Google account (managed by Google)</li>
+                <li>Any active subscriptions (cancel in Google Play first)</li>
+            </ul>
+
+            <div class="info">
+                <p><strong>ℹ️ Note:</strong> If you have an active subscription, please cancel it in Google Play Store before requesting deletion.</p>
+            </div>
+
+            <h2>Request Account Deletion</h2>
+            
+            <form id="deleteForm" action="https://formsubmit.co/privacy@buerokratai.de" method="POST">
+                <input type="hidden" name="_subject" value="Account Deletion Request - BürokratAI">
+                <input type="hidden" name="_template" value="table">
+                
+                <div class="form-group">
+                    <label for="email">Email address used for BürokratAI *</label>
+                    <input type="email" id="email" name="email" required placeholder="your.email@gmail.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="reason">Reason for deletion (optional)</label>
+                    <textarea id="reason" name="reason" placeholder="Let us know why you're leaving..."></textarea>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="confirm" name="confirm" required>
+                    <label for="confirm">I understand that this action is permanent and all my data will be deleted within 30 days.</label>
+                </div>
+
+                <button type="submit" class="btn">Request Account Deletion</button>
+                <a href="index.html" class="btn btn-secondary">Cancel</a>
+            </form>
+
+            <div class="success-message" id="successMessage">
+                <h3>✅ Request Submitted</h3>
+                <p>Your account deletion request has been received. We will process your request within 30 days and send a confirmation to your email.</p>
+            </div>
+
+            <h2 style="margin-top: 40px;">Alternative: Delete via Email</h2>
+            <p>You can also request deletion by sending an email to:</p>
+            <p><strong><a href="mailto:privacy@buerokratai.de?subject=Account%20Deletion%20Request&body=Please%20delete%20my%20BürokratAI%20account.%0A%0AEmail%20used%20for%20registration:%20%0A%0AI%20understand%20this%20action%20is%20permanent.">privacy@buerokratai.de</a></strong></p>
+
+            <div class="footer">
+                <p><a href="index.html">← Back to Privacy Policy</a></p>
+                <p style="margin-top: 10px;">© 2026 BürokratAI. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple form submission feedback
+        document.getElementById('deleteForm').addEventListener('submit', function(e) {
+            // Form will submit to formsubmit.co
+            // Show success message after short delay
+            setTimeout(function() {
+                document.getElementById('deleteForm').style.display = 'none';
+                document.getElementById('successMessage').style.display = 'block';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
